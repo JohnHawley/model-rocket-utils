@@ -179,7 +179,7 @@ union()
 	// Cone section
 	if (Cone_Shape == "parabolic")
 	{
-		// Hoolow out cone with "Cone_Wall_Thickness" to save on material
+		// Hollow out cone with "Cone_Wall_Thickness" to save on material
 		difference()
 		{
 			cone_parabolic(R = radius_out, L = Length, K = 1, s = Cone_Render_Resolution);
@@ -193,7 +193,7 @@ union()
 	}
 	if (Cone_Shape == "power_series")
 	{
-		// Hoolow out cone with "Cone_Wall_Thickness" to save on material
+		// Hollow out cone with "Cone_Wall_Thickness" to save on material
 		difference()
 		{
 			cone_power_series(n = 0.5, R = radius_out, L = Length, s = Cone_Render_Resolution);
@@ -208,7 +208,7 @@ union()
 
 	if (Cone_Shape == "haack")
 	{
-		// Hoolow out cone with "Cone_Wall_Thickness" to save on material
+		// Hollow out cone with "Cone_Wall_Thickness" to save on material
 		difference()
 		{
 			cone_haack(C = 0.3333, R = radius_out, L = Length, s = Cone_Render_Resolution);
@@ -222,7 +222,7 @@ union()
 	}
 	if (Cone_Shape != "parabolic" && Cone_Shape != "power_series" && Cone_Shape != "haack")
 	{
-		// Hoolow out cone with "Cone_Wall_Thickness" to save on material
+		// Hollow out cone with "Cone_Wall_Thickness" to save on material
 		difference()
 		{
 			scale([ 1, 1, Length / radius_out ]) difference()
@@ -231,7 +231,7 @@ union()
 				translate([ 0, 0, -radius_out / 2 ])
 				cube(size = [ 2 * radius_out, 2 * radius_out, radius_out ], center = true);
 			}
-			scale([ 1, 1, Length / (radius_out - Cone_Wall_Thickness) ]) difference()
+			scale([ 1, 1, ((Length - Cone_Wall_Thickness) / (radius_out - Cone_Wall_Thickness)) ]) difference()
 			{
 				sphere(r = radius_out - Cone_Wall_Thickness, $fn = Cone_Render_Resolution); // Adjust the sphere radius
 				translate([ 0, 0, -radius_out / 2 ])
