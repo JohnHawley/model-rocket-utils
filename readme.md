@@ -1,6 +1,9 @@
 # Model Rocketry
 Some parametric/OpenSCAD assets for model rocketry.
 
+## Preview in OpenSCAD
+![Preview](preview.png)
+
 ## To-Do - Nose Cone Mk2
 - [ ] Rename default cone shape to Spherical Nose Cone.
 - [ ] Add parameter option to render either Cone, Shoulder, or both.
